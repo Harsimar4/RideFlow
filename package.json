@@ -1,0 +1,8 @@
+{
+  "name": "rideflow",
+  "version": "1.0.0",
+  "description": "RideFlow - Full Stack Ride Booking Platform (Node.js, Express, REST APIs, role-based auth)",
+  "main": "server.js",
+  "scripts": { "start": "node server.js" },
+  "dependencies": { "express": "^4.19.2" }
+}
