@@ -1,0 +1,9 @@
+<!doctype html><title>RideFlow</title>
+<h1>RideFlow - Ride Booking Platform</h1>
+<p>Register (customer / driver / admin), log in, book a ride, drivers accept rides. API demo page - use Postman or the browser console for full flow.</p>
+<pre>POST /api/register  {name, email, password, role}
+POST /api/login     {email, password}  -> token
+POST /api/rides     (customer token) {pickup, drop}
+GET  /api/rides     (any token)
+POST /api/rides/:id/accept  (driver token)
+GET  /api/admin/stats       (admin token)</pre>
