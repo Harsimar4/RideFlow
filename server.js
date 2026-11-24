@@ -11,7 +11,10 @@ app.use(express.json());
 app.use(express.static(path.join(__dirname, "public")));
 
 const DB = path.join(__dirname, "data", "db.json");
-const load = () => JSON.parse(fs.readFileSync(DB, "utf8"));
+const load = () => {
+  if (!fs.existsSync(DB)) { fs.mkdirSync(path.dirname(DB), { recursive: true }); fs.writeFileSync(DB, JSON.stringify({ users: [], rides: [] }, null, 2)); }
+  return JSON.parse(fs.readFileSync(DB, "utf8"));
+};
 const save = (db) => fs.writeFileSync(DB, JSON.stringify(db, null, 2));
 const hash = (pw) => crypto.createHash("sha256").update(pw).digest("hex");
 const tokens = new Map(); // token -> userId
